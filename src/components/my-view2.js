@@ -11,57 +11,53 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 import { html } from '@polymer/lit-element';
 import { PageViewElement } from './page-view-element.js';
 
-// These are the elements needed by this element.
-import './counter-element.js';
-
 // These are the shared styles needed by this element.
 import { SharedStyles } from './shared-styles.js';
 
 class MyView2 extends PageViewElement {
+
   render() {
     return html`
       ${SharedStyles}
       <section>
-        <h2>State container example: simple counter</h2>
-        <div class="circle">${this._clicks}</div>
-        <p>This page contains a reusable <code>&lt;counter-element&gt;</code> which is connected to the
-        store. When the element updates its counter, this page updates the values
-        in the store, and you can see the total number of clicks reflected in
-        the bubble above.</p>
-        <br><br>
-      </section>
-      <section>
-        <p>
-          <counter-element value="${this._value}" clicks="${this._clicks}"
-              @counter-incremented="${this._increment}"
-              @counter-decremented="${this._decrement}">
-          </counter-element>
-        </p>
+        <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px"><i>Loading chat...</i></div>
+        ${this.init()}
       </section>
     `;
   }
 
-  static get properties() { return {
-    // This is the data from the store.
-    _clicks: { type: Number },
-    _value: { type: Number },
-  }}
+  init() {
+    Talk.ready.then(function() {
+      var me = new Talk.User({
+        id: "123456",
+        name: "Alice",
+        email: "alice@example.com",
+        photoUrl: "https://demo.talkjs.com/img/alice.jpg",
+        welcomeMessage: "Hey there! How are you? :-)"
+      });
 
-  constructor() {
-    super();
-    this._clicks = 0;
-    this._value = 0;
+      window.talkSession = new Talk.Session({
+        appId: "tXMeVdQ7",
+        me: me
+      });
+
+      var other = new Talk.User({
+        id: "654321",
+        name: "Sebastian",
+        email: "Sebastian@example.com",
+        photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
+        welcomeMessage: "Hey, how can I help?"
+      });
+
+      var conversation = talkSession.getOrCreateConversation(Talk.oneOnOneId(me, other))
+      conversation.setParticipant(me);
+      conversation.setParticipant(other);
+
+      var inbox = talkSession.createInbox({selected: conversation});
+      inbox.mount(document.getElementById("talkjs-container"));
+    });
   }
 
-  _increment() {
-    this._clicks++;
-    this._value++;
-  }
-
-  _decrement() {
-    this._clicks++;
-    this._value--;
-  }
 }
 
 window.customElements.define('my-view2', MyView2);
