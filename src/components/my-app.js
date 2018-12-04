@@ -32,20 +32,22 @@ class MyApp extends LitElement {
         --app-drawer-width: 256px;
         display: block;
 
-        --app-primary-color: #E91E63;
-        --app-secondary-color: #293237;
-        --app-dark-text-color: var(--app-secondary-color);
-        --app-light-text-color: white;
-        --app-section-even-color: #f7f7f7;
-        --app-section-odd-color: white;
+        --app-primary-color: #F0C300;
+        /* --app-secondary-color: #F4FEFE; */
+        --app-secondary-color:var(--app-header-text-color);
+        /* --app-dark-text-color: var(--app-secondary-color);titres 2*/
+        --app-dark-text-color: #F4FEFE;
+        --app-light-text-color: var(--app-secondary-color);/*dans les bulles etc*/
+        --app-section-even-color: var(--app-secondary-color);/*c'est quoi*/
+        --app-section-odd-color: #1C1C1C;
 
-        --app-header-background-color: white;
-        --app-header-text-color: var(--app-dark-text-color);
+        --app-header-background-color: #1C1C1C;
+        --app-header-text-color: #8C8B89;/*couleur troistitres qd pas select*/
         --app-header-selected-color: var(--app-primary-color);
 
-        --app-drawer-background-color: var(--app-secondary-color);
-        --app-drawer-text-color: var(--app-light-text-color);
-        --app-drawer-selected-color: #78909C;
+        --app-drawer-background-color: #080808;/*menu*/
+        --app-drawer-text-color: var(--app-header-text-color);
+        --app-drawer-selected-color: var(--app-primary-color);
       }
 
       app-header {
@@ -56,11 +58,12 @@ class MyApp extends LitElement {
         text-align: center;
         background-color: var(--app-header-background-color);
         color: var(--app-header-text-color);
-        border-bottom: 1px solid #eee;
+        border-bottom: 10px solid var(--app-section-odd-color);
       }
 
       .toolbar-top {
         background-color: var(--app-header-background-color);
+        height:100px;
       }
 
       [main-title] {
@@ -82,21 +85,23 @@ class MyApp extends LitElement {
         color: var(--app-header-text-color);
         text-decoration: none;
         line-height: 30px;
-        padding: 4px 24px;
+        padding: 4px 80px;
       }
 
       .toolbar-list > a[selected] {
         color: var(--app-header-selected-color);
-        border-bottom: 4px solid var(--app-header-selected-color);
+        border-bottom: 1px solid var(--app-header-selected-color);
       }
 
       .menu-btn {
         background: none;
         border: none;
-        fill: var(--app-header-text-color);
+        /* fill: var(--app-header-text-color); */
         cursor: pointer;
         height: 44px;
         width: 44px;
+        /* color:var(--app-primary-color); */
+        /* align:right; */
       }
 
       .drawer-list {
@@ -114,15 +119,18 @@ class MyApp extends LitElement {
         color: var(--app-drawer-text-color);
         line-height: 40px;
         padding: 0 24px;
+
       }
 
       .drawer-list > a[selected] {
         color: var(--app-drawer-selected-color);
+
       }
 
       /* Workaround for IE11 displaying <main> as inline */
       main {
         display: block;
+        background:var(--app-section-odd-color);
       }
 
       .main-content {
@@ -140,9 +148,10 @@ class MyApp extends LitElement {
 
       footer {
         padding: 24px;
-        background: var(--app-drawer-background-color);
-        color: var(--app-drawer-text-color);
+        background: var(--app-section-odd-color);
+        color: var(--app-primary-color);
         text-align: center;
+        font-size:20px;
       }
 
       /* Wide layout: when the viewport width is bigger than 460px, layout
@@ -153,33 +162,39 @@ class MyApp extends LitElement {
         }
 
         .menu-btn {
-          display: none;
+          display: yes;
+          /* position:right; */
+          /* color:var(--app-primary-color); */
         }
 
         .main-content {
-          padding-top: 107px;
+          padding-top: 150px;
+          color:var(--app-secondary-color);
+          text-align: justify;
+
         }
 
         /* The drawer button isn't shown in the wide layout, so we don't
         need to offset the title */
         [main-title] {
           padding-right: 0px;
+          text-align: right; /*position logo*/
         }
       }
     </style>
 
     <!-- Header -->
-    <app-header condenses reveals effects="waterfall">
+    <app-header condenses reveals effects=none>
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" @click="${this._menuButtonClicked}">${menuIcon}</button>
-        <div main-title><img src="../images/favicon.ico"></img></div>
+        <div main-title><img src="../images/favicon.ico"height=58px, width=300px></img></div>
       </app-toolbar>
 
       <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
-        <a ?selected="${this._page === 'offres'}" href="/offres">Offres</a>
-        <a ?selected="${this._page === 'discussions'}" href="/discussions">Discussions</a>
-        <a ?selected="${this._page === 'profil'}" href="/profil">Profil</a>
+        <a ?selected="${this._page === 'offres'}" href="/offres">☷ Offres</a>
+        <a ?selected="${this._page === 'discussions'}" href="/discussions">★ Discussions</a>
+        <a ?selected="${this._page === 'profil'}" href="/profil">☻ Profil</a>
       </nav>
     </app-header>
 
@@ -202,7 +217,7 @@ class MyApp extends LitElement {
     </main>
 
     <footer>
-      <p>Made with &hearts; by the Polymer team.</p>
+      <p> 🌸 CAI 🌺 ‍</p>
     </footer>
 
     <snack-bar ?active="${this._snackbarOpened}">

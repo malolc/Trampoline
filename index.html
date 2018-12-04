@@ -80,6 +80,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       window.process = { env: { NODE_ENV: 'production' } };
     </script>
 
+    <script>
+(function(t,a,l,k,j,s){
+s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+;k=t.Promise;t.Talk={v:1,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+.push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+</script>
+
     <!-- Add any global styles for body, document, etc. -->
     <style>
       @font-face {
@@ -112,5 +119,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <!-- Built with love using PWA Starter Kit -->
     <script type="module" src="src/components/my-app.js" crossorigin></script>
+
   </body>
 </html>
