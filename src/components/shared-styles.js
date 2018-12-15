@@ -29,7 +29,7 @@ export const SharedStyles = html`
   }
 
   section:nth-of-type(even) {
-    background: var(--app-section-odd-color);
+    background: var(--app-section-even-color); /*???*/
   }
 
   h2 {
@@ -44,14 +44,6 @@ export const SharedStyles = html`
     }
   }
 
-  #Global #gauche {
-    float:left;
-    width:60%;
-}
-#Global #droite {
-    margin-left:60%
-}
-
   .circle {
     display: block;
     width: 64px;
@@ -65,5 +57,6 @@ export const SharedStyles = html`
     font-size: 30px;
     line-height: 64px;
   }
+
 </style>
 `;

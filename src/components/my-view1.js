@@ -19,10 +19,12 @@ class MyView1 extends PageViewElement {
     return html`
       ${SharedStyles}
       <section>
-        <h2>Offres populaires ></h2>
+        <h2>Offres populaires</h2>
+        <p>Offres sous forme de carrés à intégrer</p>
       </section>
       <section>
-        <h2>Toutes les offres ></h2>
+        <h2>Toutes les offres</h2>
+        <p>Offres sous forme de carrés à intégrer</p>
       </section>
     `;
   }

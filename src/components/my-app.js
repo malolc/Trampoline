@@ -59,6 +59,7 @@ class MyApp extends LitElement {
         background-color: var(--app-header-background-color);
         color: var(--app-header-text-color);
         border-bottom: 10px solid var(--app-section-odd-color);
+        display: ${this._showHeader};
       }
 
       .toolbar-top {
@@ -152,6 +153,7 @@ class MyApp extends LitElement {
         color: var(--app-primary-color);
         text-align: center;
         font-size:20px;
+        display: ${this._showFooter}
       }
 
       /* Wide layout: when the viewport width is bigger than 460px, layout
@@ -164,14 +166,13 @@ class MyApp extends LitElement {
         .menu-btn {
           display: yes;
           /* position:right; */
-          /*color: var(--app-primary-color);*/
+          /* color:var(--app-primary-color); */
         }
 
         .main-content {
           padding-top: 150px;
           color:var(--app-secondary-color);
           text-align: justify;
-
 
         }
 
@@ -189,7 +190,6 @@ class MyApp extends LitElement {
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" @click="${this._menuButtonClicked}">${menuIcon}</button>
         <div main-title><img src="../images/favicon.ico"height=58px, width=300px></img></div>
-
       </app-toolbar>
 
       <!-- This gets hidden on a small screen-->
@@ -212,6 +212,7 @@ class MyApp extends LitElement {
 
     <!-- Main content -->
     <main role="main" class="main-content">
+      <my-viewsubscription class="page" ?active="${this._page === 'connexion'}"></my-viewsubscription>
       <my-view1 class="page" ?active="${this._page === 'offres'}"></my-view1>
       <my-view2 class="page" ?active="${this._page === 'discussions'}"></my-view2>
       <my-view3 class="page" ?active="${this._page === 'profil'}"></my-view3>
@@ -219,7 +220,7 @@ class MyApp extends LitElement {
     </main>
 
     <footer>
-      <p> Réalisé par Martin DIEGUEZ (McDo©) ‍</p>
+      <p> 🌸 CAI 🌺 ‍</p>
     </footer>
 
     <snack-bar ?active="${this._snackbarOpened}">
@@ -233,7 +234,9 @@ class MyApp extends LitElement {
       _page: { type: String },
       _drawerOpened: { type: Boolean },
       _snackbarOpened: { type: Boolean },
-      _offline: { type: Boolean }
+      _offline: { type: Boolean },
+      _showHeader: { type: String },
+      _showFooter: { type: String }
     }
   }
 
@@ -284,7 +287,7 @@ class MyApp extends LitElement {
 
   _locationChanged() {
     const path = window.decodeURIComponent(window.location.pathname);
-    const page = path === '/' ? 'offres' : path.slice(1);
+    const page = path === '/' ? 'connexion' : path.slice(1);
     this._loadPage(page);
     // Any other info you might want to extract from the path (like page type),
     // you can do here.
@@ -301,6 +304,11 @@ class MyApp extends LitElement {
 
   _loadPage(page) {
     switch(page) {
+      case 'connexion':
+        this._showHeader = 'none';
+        this._showFooter = 'none';
+        import('../components/my-viewSubscription.js');
+        break;
       case 'offres':
         import('../components/my-view1.js').then((module) => {
           // Put code in here that you want to run every time when
