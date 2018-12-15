@@ -96,7 +96,7 @@ class MyApp extends LitElement {
       .menu-btn {
         background: none;
         border: none;
-        /* fill: var(--app-header-text-color); */
+        fill: var(--app-header-text-color);
         cursor: pointer;
         height: 44px;
         width: 44px;
@@ -164,13 +164,14 @@ class MyApp extends LitElement {
         .menu-btn {
           display: yes;
           /* position:right; */
-          /* color:var(--app-primary-color); */
+          /*color: var(--app-primary-color);*/
         }
 
         .main-content {
           padding-top: 150px;
           color:var(--app-secondary-color);
           text-align: justify;
+
 
         }
 
@@ -188,6 +189,7 @@ class MyApp extends LitElement {
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" @click="${this._menuButtonClicked}">${menuIcon}</button>
         <div main-title><img src="../images/favicon.ico"height=58px, width=300px></img></div>
+
       </app-toolbar>
 
       <!-- This gets hidden on a small screen-->
@@ -217,7 +219,7 @@ class MyApp extends LitElement {
     </main>
 
     <footer>
-      <p> 🌸 CAI 🌺 ‍</p>
+      <p> Réalisé par Martin DIEGUEZ (McDo©) ‍</p>
     </footer>
 
     <snack-bar ?active="${this._snackbarOpened}">
