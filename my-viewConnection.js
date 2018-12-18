@@ -22,7 +22,7 @@ class MyViewSubscription extends PageViewElement {
       ${SharedStyles}
       ${ButtonSharedStyles}
       <style>
-        section {
+        section2 {
           text-align : center;
         }
         button {
@@ -36,31 +36,34 @@ class MyViewSubscription extends PageViewElement {
           color: var(--app-primary-color);
         }
         h1{
-          font-size: 100px;
+          font-size: 80px;
         }
         h3{
           font-size: 30px;
+        a{
+          color:white;
+          style:none;
         }
-      </style>
 
-      <section>
+      </style>
+      <section2>
         <h1>Bienvenue</h1>
         <h3>Trampoline, un tremplin pour votre carrière</h3><br>
-        <p><a href="/inscription">Vous n'avez pas encore rejoins notre super réseau ? Rejoignez nous dès à présent</a></p>
+        <p><a href="/inscription">Vous n'avez pas encore rejoins notre réseau ? Rejoignez nous dès à présent !</a></p>
         <div id="connexion" class="tabcontent">
         <form name="connexion" display="${this.displayConnect}">
           <p>
             <label for="Mail">E-mail :</label><br>
-            <input type="text" name="mail" id="mail" placeholder="jacob.alexandre@trampoline.com" size="30" maxlength="45"/>
+            <input type="text" name="mail" id="mail" size="30" maxlength="45"/>
           </p>
           <p>
             <label for="Motdepasse">Mot de passe :</label><br>
-            <input type="password" name="motdepasse" id="motdepasse" placeholder="Password" size="30" minlength="8"/>
+            <input type="password" name="motdepasse" id="motdepasse"  size="30" minlength="8"/>
           </p>
         </form><br><br>
         <button @click="${this.checkingConnection}" href="/profil">Connexion</button>
         </div>
-      </section>
+      </section2>
     `;
   }
 

@@ -26,7 +26,6 @@ class MyView1 extends PageViewElement {
           padding: .5em .5em 0;
         }
       </style>
-
       <section>
         <h2>Offres populaires ></h2>
         <div id="GlobalHaut">
@@ -60,7 +59,6 @@ class MyView1 extends PageViewElement {
            </details>
            </div>
         </div>
-
       </section>
       <section>
         <h2>Toutes les offres ></h2>
@@ -90,10 +88,6 @@ class MyView1 extends PageViewElement {
            </details>
            </div>
         </div>
-
-
-
-
       </section>
     `;
   }

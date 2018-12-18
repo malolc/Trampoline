@@ -31,7 +31,6 @@ class MyApp extends LitElement {
       :host {
         --app-drawer-width: 256px;
         display: block;
-
         --app-primary-color: #F0C300;
         /* --app-secondary-color: #F4FEFE; */
         --app-secondary-color:var(--app-header-text-color);
@@ -40,16 +39,13 @@ class MyApp extends LitElement {
         --app-light-text-color: var(--app-secondary-color);/*dans les bulles etc*/
         --app-section-even-color: var(--app-secondary-color);/*c'est quoi*/
         --app-section-odd-color: #1C1C1C;
-
         --app-header-background-color: #1C1C1C;
         --app-header-text-color: #8C8B89;/*couleur troistitres qd pas select*/
         --app-header-selected-color: var(--app-primary-color);
-
         --app-drawer-background-color: #080808;/*menu*/
         --app-drawer-text-color: var(--app-header-text-color);
         --app-drawer-selected-color: var(--app-primary-color);
       }
-
       app-header {
         position: fixed;
         top: 0;
@@ -61,12 +57,10 @@ class MyApp extends LitElement {
         border-bottom: 10px solid var(--app-section-odd-color);
         display: ${this._showHeader};
       }
-
       .toolbar-top {
         background-color: var(--app-header-background-color);
         height:100px;
       }
-
       [main-title] {
         font-family: 'Pacifico';
         text-transform: lowercase;
@@ -76,11 +70,9 @@ class MyApp extends LitElement {
         match that button */
         padding-right: 44px;
       }
-
       .toolbar-list {
         display: none;
       }
-
       .toolbar-list > a {
         display: inline-block;
         color: var(--app-header-text-color);
@@ -88,12 +80,10 @@ class MyApp extends LitElement {
         line-height: 30px;
         padding: 4px 80px;
       }
-
       .toolbar-list > a[selected] {
         color: var(--app-header-selected-color);
         border-bottom: 1px solid var(--app-header-selected-color);
       }
-
       .menu-btn {
         background: none;
         border: none;
@@ -104,7 +94,6 @@ class MyApp extends LitElement {
         /* color:var(--app-primary-color); */
         /* align:right; */
       }
-
       .drawer-list {
         box-sizing: border-box;
         width: 100%;
@@ -113,40 +102,31 @@ class MyApp extends LitElement {
         background: var(--app-drawer-background-color);
         position: relative;
       }
-
       .drawer-list > a {
         display: block;
         text-decoration: none;
         color: var(--app-drawer-text-color);
         line-height: 40px;
         padding: 0 24px;
-
       }
-
       .drawer-list > a[selected] {
         color: var(--app-drawer-selected-color);
-
       }
-
       /* Workaround for IE11 displaying <main> as inline */
       main {
         display: block;
         background:var(--app-section-odd-color);
       }
-
       .main-content {
         padding-top: 64px;
         min-height: 100vh;
       }
-
       .page {
         display: none;
       }
-
       .page[active] {
         display: block;
       }
-
       footer {
         padding: 24px;
         background: var(--app-section-odd-color);
@@ -155,28 +135,22 @@ class MyApp extends LitElement {
         font-size:20px;
         display: ${this._showFooter}
       }
-
       /* Wide layout: when the viewport width is bigger than 460px, layout
       changes to a wide layout. */
       @media (min-width: 460px) {
         .toolbar-list {
           display: block;
         }
-
         .menu-btn {
           display: yes;
           /* position:right; */
           /*color: var(--app-primary-color);*/
         }
-
         .main-content {
           padding-top: 150px;
           color:var(--app-secondary-color);
           text-align: justify;
-
-
         }
-
         /* The drawer button isn't shown in the wide layout, so we don't
         need to offset the title */
         [main-title] {
@@ -185,15 +159,12 @@ class MyApp extends LitElement {
         }
       }
     </style>
-
     <!-- Header -->
     <app-header condenses reveals effects=none>
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" @click="${this._menuButtonClicked}">${menuIcon}</button>
         <div main-title><img src="../images/favicon.ico"height=58px, width=300px></img></div>
-
       </app-toolbar>
-
       <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
         <a ?selected="${this._page === 'offres'}" href="/offres">☷ Offres</a>
@@ -201,7 +172,6 @@ class MyApp extends LitElement {
         <a ?selected="${this._page === 'profil'}" href="/profil">☻ Profil</a>
       </nav>
     </app-header>
-
     <!-- Drawer content -->
     <app-drawer .opened="${this._drawerOpened}"
         @opened-changed="${this._drawerOpenedChanged}">
@@ -211,7 +181,6 @@ class MyApp extends LitElement {
         <a ?selected="${this._page === 'profil'}" href="/profil">Profil</a>
       </nav>
     </app-drawer>
-
     <!-- Main content -->
     <main role="main" class="main-content">
       <my-viewsubscription class="page" ?active="${this._page === 'connexion'}"></my-viewsubscription>
@@ -221,11 +190,9 @@ class MyApp extends LitElement {
       <my-view3 class="page" ?active="${this._page === 'profil'}"></my-view3>
       <my-view404 class="page" ?active="${this._page === 'view404'}"></my-view404>
     </main>
-
     <footer>
       <p> Réalisé par Martin DIEGUEZ (McDo©) ‍</p>
     </footer>
-
     <snack-bar ?active="${this._snackbarOpened}">
         You are now ${this._offline ? 'offline' : 'online'}.</snack-bar>
     `;
