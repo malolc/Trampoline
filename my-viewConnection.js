@@ -61,7 +61,7 @@ class MyViewSubscription extends PageViewElement {
             <input type="password" name="motdepasse" id="motdepasse"  size="30" minlength="8"/>
           </p>
         </form><br><br>
-        <button @click="${this.checkingConnection}" href="/profil">Connexion</button>
+        <button onclick="location.href='/profil'">Connexion</button>
         </div>
       </section2>
     `;

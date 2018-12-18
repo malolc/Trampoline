@@ -48,15 +48,26 @@ class MyViewInscription extends PageViewElement {
         <div id="inscritpion" class="tabcontent">
         <form name="inscritpion" display="${this.displayConnect}">
           <p>
-            <label for="Mail">E-mail :</label><br>
-            <input type="text" name="mail" id="mail"  size="30" maxlength="45"/>
-          </p>
-          <p>
-            <label for="Motdepasse">Mot de passe :</label><br>
-            <input type="password" name="motdepasse" id="motdepasse"  size="30" minlength="8"/>
+          <form action="/action_page.php">
+            Prénom :<br>
+            <input type="text" name="prenom" value=""><br><br>
+            NOM :<br>
+            <input type="text" name="nom" value=""><br><br>
+            Téléphone :<br>
+            <input type="text" name="telephone" value=""><br><br>
+            Date de naissance :<br>
+            <input type="date" name="datenaissance" value=""><br><br>
+            Adresse email :<br>
+            <input type="email" name="email" value=""><br><br>
+            Mot de passe :<br>
+            <input type="mdp" name="mdp" value=""><br><br>
+            Confirmez votre mot de passe :<br>
+            <input type="mdp2" name="mdp2" value=""><br><br>
+          </form>
+
           </p>
         </form><br><br>
-        <button @click="${this.checkingConnection}" href="/profil">S'inscrire</button>
+        <button onclick="location.href='/profil'">Connexion</button>
         </div>
       </section2>
     `;
