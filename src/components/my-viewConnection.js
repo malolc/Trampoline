@@ -15,7 +15,7 @@ import { PageViewElement } from './page-view-element.js';
 import { SharedStyles } from './shared-styles.js';
 import { ButtonSharedStyles } from './button-shared-styles.js';
 
-class MyViewInscription extends PageViewElement {
+class MyViewSubscription extends PageViewElement {
 
   render() {
     return html`
@@ -46,8 +46,9 @@ class MyViewInscription extends PageViewElement {
       <section>
         <h1>Bienvenue</h1>
         <h3>Trampoline, un tremplin pour votre carrière</h3><br>
-        <div id="inscritpion" class="tabcontent">
-        <form name="inscritpion" display="${this.displayConnect}">
+        <p><a href="/inscription">Vous n'avez pas encore rejoins notre super réseau ? Rejoignez nous dès à présent</a></p>
+        <div id="connexion" class="tabcontent">
+        <form name="connexion" display="${this.displayConnect}">
           <p>
             <label for="Mail">E-mail :</label><br>
             <input type="text" name="mail" id="mail" placeholder="jacob.alexandre@trampoline.com" size="30" maxlength="45"/>
@@ -57,7 +58,7 @@ class MyViewInscription extends PageViewElement {
             <input type="password" name="motdepasse" id="motdepasse" placeholder="Password" size="30" minlength="8"/>
           </p>
         </form><br><br>
-        <button @click="${this.checkingConnection}" href="/profil">S'inscrire</button>
+        <button @click="${this.checkingConnection}" href="/profil">Connexion</button>
         </div>
       </section>
     `;
@@ -94,7 +95,7 @@ class MyViewInscription extends PageViewElement {
 
   checkingConnection() {
     // console.log(this.__name);
-    // var mail = this.inscritpion.mail.value;
+    // var mail = this.connexion.mail.value;
     // if (!mail.includes("@")){
     //   alert("Votre adresse e-mail est invalide !");
     //   return false;
@@ -106,4 +107,4 @@ class MyViewInscription extends PageViewElement {
 
 }
 
-window.customElements.define('my-viewinscription', MyViewInscription);
+window.customElements.define('my-viewsubscription', MyViewSubscription);

@@ -18,7 +18,8 @@ export const SharedStyles = html`
   }
 
   section {
-    padding: 24px;
+    padding: 30px;
+    margin-left:100px;
     background: var(--app-section-odd-color);
   }
 
@@ -44,13 +45,47 @@ export const SharedStyles = html`
     }
   }
 
-  #Global #gauche {
+  #Global #gaucheProfil {
     float:left;
     width:60%;
-}
-#Global #droite {
-    margin-left:60%
-}
+  }
+  #Global #droiteProfil {
+    margin-left:10%
+  }
+  #GlobalHaut #gaucheOffresHaut {
+    float:left;
+    width:20%;
+    display: inline;
+    margin-left: 10%;
+  }
+  #GlobalHaut #droiteOffresHaut {
+    margin-left:50%;
+    width: 20%;
+  }
+  #GlobalBas #gaucheOffresBas {
+    float:left;
+    width:20%;
+    display: inline;
+    margin-left: 10%;
+  }
+  #GlobalBas #droiteOffresBas {
+    margin-left:50%;
+    width: 20%;
+  }
+  #Global #gaucheProfilInfo {
+    /* float:left; */
+    width:20%;
+  }
+  #Global #gaucheProfilInfo {
+    margin-left:10%
+  }
+  #Global #droiteProfilInfo {
+    float:left;
+    width:40%;
+  }
+  #Global #droiteProfilInfo {
+    margin-left:0%
+  }
 
   .circle {
     display: block;
@@ -65,5 +100,9 @@ export const SharedStyles = html`
     font-size: 30px;
     line-height: 64px;
   }
+
+
+
+
 </style>
 `;

@@ -215,6 +215,7 @@ class MyApp extends LitElement {
     <!-- Main content -->
     <main role="main" class="main-content">
       <my-viewsubscription class="page" ?active="${this._page === 'connexion'}"></my-viewsubscription>
+      <my-viewinscription class="page" ?active="${this._page === 'inscription'}"></my-viewinscription>
       <my-view1 class="page" ?active="${this._page === 'offres'}"></my-view1>
       <my-view2 class="page" ?active="${this._page === 'discussions'}"></my-view2>
       <my-view3 class="page" ?active="${this._page === 'profil'}"></my-view3>
@@ -309,8 +310,13 @@ class MyApp extends LitElement {
       case 'connexion':
         this._showHeader = 'none';
         this._showFooter = 'none';
-        import('../components/my-viewSubscription.js');
+        import('../components/my-viewConnection.js');
         break;
+        case 'inscription':
+          this._showHeader = 'none';
+          this._showFooter = 'none';
+          import('../components/my-viewSubscription.js');
+          break;
       case 'offres':
         import('../components/my-view1.js').then((module) => {
           // Put code in here that you want to run every time when
